@@ -1,0 +1,5 @@
+<h3>Directives</h3>
+<button (click)="logClick()">Display Details</button>
+<span *ngIf="isDisplayed"> my content</span>
+<div *ngFor="let eLog of clickLog; let i  = index;" [ngStyle]="{backgroundColor: (i > 3) ? 'blue' : 'transparent'}"
+  [ngClass]="{wh: i > 3}">{{eLog}}</div>

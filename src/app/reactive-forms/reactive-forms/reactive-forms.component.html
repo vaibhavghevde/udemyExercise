@@ -1,0 +1,101 @@
+<div class="layout">
+  <h2>Reactive Forms (Practise)</h2>
+  <div>
+    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit(signUpForm)">
+      <div formGroupName="userData">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username">
+            <mat-hint *ngIf="!signUpForm.get('userData.username')?.valid &&
+            signUpForm.get('userData.username')?.touched" class="error-hint">
+              <span *ngIf="signUpForm.get('userData.username')?.errors?.['forbiddenNameFound']">This name is
+                invalid!</span>
+              <span *ngIf="signUpForm.get('userData.username')?.errors?.['required']">Please enter username</span>
+            </mat-hint>
+          </mat-form-field>
+          <span class="info">Invalid user names: vaibhav, komal</span>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Mail</mat-label>
+            <input matInput formControlName="email">
+            <mat-hint *ngIf="!signUpForm.get('userData.email')?.valid &&
+            signUpForm.get('userData.email')?.touched" class="error-hint">
+              Please enter a valid email!</mat-hint>
+          </mat-form-field>
+          <span class="info">Invalid email: vpg1986@gmail.com</span>
+        </div>
+      </div>
+
+      <div>
+        <label id="example-radio-group-label">Gender</label>
+        <mat-radio-group aria-label="Gender" formControlName="gender" class="ml10">
+          <mat-radio-button *ngFor="let g of genders" [value]="g" class="ml10">{{g}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div formArrayName="hobbies" class="pt10">
+        <button mat-stroked-button color="accent" type="button" class="ml10" (click)="onAddHobby()"
+          [disabled]="!signUpForm.get('hobbies')?.valid">Add Hobby</button>
+        <div *ngFor="let contorl of controls; let i = index">
+          <mat-form-field appearance="outline">
+            <input matInput [formControlName]="i">
+            <mat-hint *ngIf="!contorl.valid && contorl.touched" class="error-hint">
+              Please enter a hobby!</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="mt10">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!signUpForm.valid">Submit</button>
+        <button mat-raised-button color="warn" type="button" class="ml10" (click)="onResetSignUpForm()">Reset</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="layout left">
+  <h2>Reative Forms (Assignment)</h2>
+  <form [formGroup]="projectDetailsForm" (ngSubmit)="onSubmit(projectDetailsForm)">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Project Name</mat-label>
+        <input matInput formControlName="projectName">
+        <mat-spinner diameter="15" color="accent" msname></mat-spinner>
+        <mat-hint
+          *ngIf="!projectDetailsForm.get('projectName')?.valid && projectDetailsForm.get('projectName')?.touched"
+          class="error-hint">
+          <span *ngIf="projectDetailsForm.get('projectName')?.errors?.['forbiddenNameFound']">Project Name is
+            invalid!</span>
+          <span *ngIf="projectDetailsForm.get('projectName')?.errors?.['required']">Please enter a Project Name</span>
+        </mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Mail</mat-label>
+        <input matInput formControlName="mail">
+        <mat-spinner diameter="15" color="accent" msmail></mat-spinner>
+        <mat-hint *ngIf="!projectDetailsForm.get('mail')?.valid && projectDetailsForm.get('mail')?.touched"
+          class="error-hint">
+          <span *ngIf="projectDetailsForm.get('mail')?.errors?.['emailIsForbidden']">Mail is invalid!</span>
+          <span *ngIf="projectDetailsForm.get('mail')?.errors?.['required']">Please enter a mail address</span>
+        </mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Project Status</mat-label>
+        <mat-select formControlName="projectStatus">
+          <mat-option *ngFor="let s of projectStatus" [value]="s.toLowerCase()">{{s}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="mt10">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!projectDetailsForm.valid">Submit</button>
+      <button mat-raised-button color="warn" type="button" class="ml10"
+        (click)="onResetProjectDetailsForm()">Reset</button>
+    </div>
+  </form>
+</div>

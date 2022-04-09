@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container" [hasBackdrop]="false">
+  <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false"> -->
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="'navigation'" mode='over' [opened]="false">
+    <mat-toolbar>Udemy Exercises</mat-toolbar>
+    <mat-nav-list (click)="drawer.toggle()">
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/reactiveform']">Reactive Forms</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/tdform']">TD-Form</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/observables']">Observables</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/assignment5']">Assignment 5</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/assignment4']">Assignment 4</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/assignment3']">Assignment 3</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/assignment2']">Assignment 2</a>
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/assignment1']">Assignment 1</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="!drawer.opened">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Udemy Exercises</span>
+    </mat-toolbar>
+    <div class="pl10">
+      <!-- Add Content Here -->
+      <router-outlet></router-outlet>
+    </div>
+    <mat-card class="console">
+      <p>Console:</p>
+      <app-console></app-console>
+    </mat-card>
+  </mat-sidenav-content>
+</mat-sidenav-container>

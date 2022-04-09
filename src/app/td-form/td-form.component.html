@@ -1,0 +1,112 @@
+<div class="layout">
+  <h2>Template Driven Forms (Practise)</h2>
+  <div>
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div ngModelGroup="userData" #userData="ngModelGroup">
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput ngModel name="username" required>
+        </mat-form-field>
+        <br />
+        <button mat-raised-button color="accent" (click)="suggestUserName()" type="button">Sugget Username</button>
+        <br />
+        <mat-form-field appearance="outline">
+          <mat-label>Mail</mat-label>
+          <input matInput ngModel name="email" required email #email="ngModel">
+          <mat-hint *ngIf="!email.valid && email.touched" class="error-hint">Please enter a valid Email!</mat-hint>
+        </mat-form-field>
+      </div>
+      <p class="error-hint" *ngIf="!userData.valid && userData.touched">User data is invalid!</p>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Secret Questions</mat-label>
+          <mat-select [ngModel]="'pet'" name="secret">
+            <mat-option value="pet">Your first Pet?</mat-option>
+            <mat-option value="teacher">Your first Teacher?</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <textarea matInput rows="3" name="questionAnswer" [(ngModel)]="answer"></textarea>
+        </mat-form-field>
+      </div>
+      <div>
+        <p>Your Reply: {{answer}}</p>
+      </div>
+      <div>
+        <label id="example-radio-group-label">Gender</label>
+        <mat-radio-group aria-label="Gender">
+          <mat-radio-button *ngFor="let g of genders" [value]="g" class="ml16" name="gender" ngModel ngDefaultControl
+            required>{{g}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div class="mt10">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid">Submit</button>
+        <button mat-raised-button color="warn" type="button" class="ml10" (click)="Reset()">Reset</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="submitted">
+    <mat-card>
+      <mat-card-title>Practise Data</mat-card-title>
+      <mat-card-content>
+        <p>Username: {{user.userName}}</p>
+        <p>Mail: {{user.mail}}</p>
+        <p>Secret Question: Your first {{user.secretQuestion}}?</p>
+        <p>Answer: {{user.answer}}</p>
+        <p>Gender: {{user.gender}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<div class="layout left">
+  <h2>Template Driven Forms (Assignment)</h2>
+  <div>
+    <form (ngSubmit)="onSubmit1()" #f1="ngForm">
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput ngModel name="email" required type="email" #email1="ngModel">
+          <mat-hint *ngIf="!email1.valid && email1.touched" class="error-hint">Please enter a valid Email!</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Subscription</mat-label>
+          <mat-select [ngModel]="'Advanced'" name="subscription">
+            <mat-option value="Basic">Basic</mat-option>
+            <mat-option value="Advanced">Advanced</mat-option>
+            <mat-option value="Pro">Pro</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput ngModel name="password" required type="password" #password="ngModel"
+            autocomplete="new-password">
+          <mat-hint *ngIf="!password.valid && password.touched" class="error-hint">Please enter a Password!</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <p class="error-hint" *ngIf="f1.invalid && f1.touched">Form has some invalid values</p>
+      </div>
+      <div class="mt10">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!f1.valid">Submit</button>
+        <button mat-raised-button color="warn" type="button" class="ml10" (click)="Reset1()">Reset</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="submitted1">
+    <mat-card>
+      <mat-card-title>Assignment Data</mat-card-title>
+      <mat-card-content>
+        <p>Email: {{assignment.email}}</p>
+        <p>Subscription: {{assignment.subscription}}</p>
+        <p>Password: {{assignment.password}}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

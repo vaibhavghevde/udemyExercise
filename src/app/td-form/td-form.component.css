@@ -1,0 +1,28 @@
+.error-hint {
+  color: #f44336;
+}
+
+.ml16 {
+  margin-left: 16px;
+}
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}
+
+mat-form-field {
+  width: 100% !important;
+}
+
+.layout {
+  width: 48% !important;
+  display: inline-grid;
+}
+
+.left {
+  padding-left: 10px;
+}

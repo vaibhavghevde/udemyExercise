@@ -1,0 +1,4 @@
+<h3>Data Binding</h3>
+Enter UserName: <input type="text" [(ngModel)]="username" />
+<p>{{username}}</p>
+<button [disabled]="username === ''" (click)="emptyInput()">Reset</button>

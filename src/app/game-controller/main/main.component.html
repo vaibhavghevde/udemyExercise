@@ -1,0 +1,15 @@
+<app-game-control (newNumberCreated)="getNewNumber($event)" (gameStopped)="isGameStopped($event)"></app-game-control>
+<table>
+  <tr>
+    <td>
+      <div>
+        <app-odd *ngFor="let odd of odds" [newNumber]="odd"></app-odd>
+      </div>
+    </td>
+    <td>
+      <div>
+        <app-even *ngFor="let even of evens" [newNumber]="even"></app-even>
+      </div>
+    </td>
+  </tr>
+</table>
