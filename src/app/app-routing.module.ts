@@ -1,3 +1,4 @@
+import { PipesComponent } from './pipesTest/pipes-component/pipes.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms/reactive-forms.component';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -24,6 +25,7 @@ const appRoutes = [
       { path: 'observables', component: ObservablesComponent },
       { path: 'tdform', component: TdFormComponent },
       { path: 'reactiveform', component: ReactiveFormsComponent },
+      { path: 'pipes', component: PipesComponent },
     ],
   },
 ];

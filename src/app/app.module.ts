@@ -1,3 +1,12 @@
+import { UseCustomPipesComponent } from './pipesTest/pipes-component/custompipes/usecustompipes.component';
+import { ShortenPipe } from './pipesTest/pipes-component/custompipes/shorten.pipe';
+import { KeyValuePipeComponent } from './pipesTest/pipes-component/keyvaluepipe.component';
+import { I18nPluralPipeComponent } from './pipesTest/pipes-component/i18npluralpipe.component';
+import { PercentPipeComponent } from './pipesTest/pipes-component/percentpipe.component';
+import { JsonPipeComponent } from './pipesTest/pipes-component/jsonpipe.component';
+import { CurrencyPipeComponent } from './pipesTest/pipes-component/currencypipe.component';
+import { CasePipeComponent } from './pipesTest/pipes-component/casepipe.component';
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -40,6 +49,12 @@ import { ObservablesComponent } from './observables/observables.component';
 import { ConsoleComponent } from './console/console.component';
 import { TdFormComponent } from './td-form/td-form.component';
 import { ReactiveFormsComponent } from './reactive-forms/reactive-forms/reactive-forms.component';
+import { PipesComponent } from './pipesTest/pipes-component/pipes.component';
+import { AsyncPromisePipeComponent } from './pipesTest/pipes-component/async-pipe.component';
+import { DatePipeComponent } from './pipesTest/pipes-component/datepipe.component';
+import { I18nSelectPipeComponent } from './pipesTest/i18nselectpipe.component';
+import { NumberPipeComponent } from './pipesTest/pipes-component/numberpipe.component';
+import { FilterPipe } from './pipesTest/pipes-component/custompipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -60,6 +75,20 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms/reactive
     ConsoleComponent,
     TdFormComponent,
     ReactiveFormsComponent,
+    PipesComponent,
+    AsyncPromisePipeComponent,
+    DatePipeComponent,
+    I18nSelectPipeComponent,
+    CasePipeComponent,
+    CurrencyPipeComponent,
+    NumberPipeComponent,
+    JsonPipeComponent,
+    PercentPipeComponent,
+    I18nPluralPipeComponent,
+    KeyValuePipeComponent,
+    ShortenPipe,
+    UseCustomPipesComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -89,4 +118,4 @@ import { ReactiveFormsComponent } from './reactive-forms/reactive-forms/reactive
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
