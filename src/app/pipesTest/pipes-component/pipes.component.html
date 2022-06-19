@@ -1,33 +1,54 @@
-<h1>Pipes Examples</h1>
-<h2>Async Pipe</h2>
-<async-promise-pipe></async-promise-pipe>
-<hr />
-<h2>Date Pipe</h2>
-<date-pipe></date-pipe>
-<hr />
-<h2>I18nSelect Pipe</h2>
-<i18n-select-pipe></i18n-select-pipe>
-<hr />
-<h2>Case Pipe</h2>
-<case-pipe></case-pipe>
-<hr />
-<h2>Currency Pipe</h2>
-<currency-pipe></currency-pipe>
-<hr />
-<h2>Number Pipe</h2>
-<number-pipe></number-pipe>
-<hr />
-<h2>JSON Pipe</h2>
-<json-pipe></json-pipe>
-<hr />
-<h2>Percent Pipe</h2>
-<percent-pipe></percent-pipe>
-<hr />
-<h2>I18nPlural Pipe</h2>
-<i18n-plural-pipe></i18n-plural-pipe>
-<hr />
-<h2>KeyValue Pipe</h2>
-<keyvalue-pipe></keyvalue-pipe>
-<hr />
-<h2>Custom Pipes</h2>
-<use-custom-pipes></use-custom-pipes>
+<div class="layout">
+  <h1>Pipes Examples(practise)</h1>
+  <h2>Async Pipe</h2>
+  <async-promise-pipe></async-promise-pipe>
+  <hr />
+  <h2>Date Pipe</h2>
+  <date-pipe></date-pipe>
+  <hr />
+  <h2>I18nSelect Pipe</h2>
+  <i18n-select-pipe></i18n-select-pipe>
+  <hr />
+  <h2>Case Pipe</h2>
+  <case-pipe></case-pipe>
+  <hr />
+  <h2>Currency Pipe</h2>
+  <currency-pipe></currency-pipe>
+  <hr />
+  <h2>Number Pipe</h2>
+  <number-pipe></number-pipe>
+  <hr />
+  <h2>JSON Pipe</h2>
+  <json-pipe></json-pipe>
+  <hr />
+  <h2>Percent Pipe</h2>
+  <percent-pipe></percent-pipe>
+  <hr />
+  <h2>I18nPlural Pipe</h2>
+  <i18n-plural-pipe></i18n-plural-pipe>
+  <hr />
+  <h2>KeyValue Pipe</h2>
+  <keyvalue-pipe></keyvalue-pipe>
+  <hr />
+  <h2>Custom Pipes</h2>
+  <use-custom-pipes></use-custom-pipes>
+</div>
+<div class="layout left">
+  <h1>Pipes Assignment</h1>
+  <h2>Task 1</h2>
+  <input type="text" [(ngModel)]="strReverse">
+  <div>{{strReverse | reverse}}</div>
+  <h2>Task 2</h2>
+  <input type="text" [(ngModel)]="strWord">
+  <button type="button" (click)="onAddWord()">Add word</button>
+  <div>
+    <div class="layout">
+      unsorted word list
+      <div *ngFor="let i of unsorted">{{i}}</div>
+    </div>
+    <div class="layout left">
+      sorted word list
+      <div *ngFor="let i of sorted | sort">{{i}}</div>
+    </div>
+  </div>
+</div>

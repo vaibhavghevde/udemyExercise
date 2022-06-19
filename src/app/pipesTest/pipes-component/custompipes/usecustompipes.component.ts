@@ -15,13 +15,15 @@ import { Component } from '@angular/core';
     </div>
     <h2>Using Filter Pipe</h2>
     <div>
-      <!-- add forloop here and loop through the countries array and then create the filter pipe and use it-->
+      <input type="text" [(ngModel)]="searchText" />
     </div>
+    <div *ngFor="let c of countries | filter: searchText">{{ c }}</div>
   `,
 })
 export class UseCustomPipesComponent {
   bigWord: string = 'ThisBigWordNeedsToBeShortened';
   numLen: number = this.bigWord.length;
+  searchText: string = '';
   countries: string[] = [
     'Afghanistan',
     'Albania',

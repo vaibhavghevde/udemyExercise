@@ -1,3 +1,5 @@
+import { LoggingInterceptorService } from './http/logging-interceptor.service';
+import { SortPipe } from './pipesTest/pipes-component/custompipes/sort.pipe';
 import { UseCustomPipesComponent } from './pipesTest/pipes-component/custompipes/usecustompipes.component';
 import { ShortenPipe } from './pipesTest/pipes-component/custompipes/shorten.pipe';
 import { KeyValuePipeComponent } from './pipesTest/pipes-component/keyvaluepipe.component';
@@ -55,6 +57,10 @@ import { DatePipeComponent } from './pipesTest/pipes-component/datepipe.componen
 import { I18nSelectPipeComponent } from './pipesTest/i18nselectpipe.component';
 import { NumberPipeComponent } from './pipesTest/pipes-component/numberpipe.component';
 import { FilterPipe } from './pipesTest/pipes-component/custompipes/filter.pipe';
+import { ReversePipe } from './pipesTest/pipes-component/custompipes/reverse.pipe';
+import { HttpComponent } from './http/http.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './http/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -89,6 +95,9 @@ import { FilterPipe } from './pipesTest/pipes-component/custompipes/filter.pipe'
     ShortenPipe,
     UseCustomPipesComponent,
     FilterPipe,
+    ReversePipe,
+    SortPipe,
+    HttpComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,7 +123,20 @@ import { FilterPipe } from './pipesTest/pipes-component/custompipes/filter.pipe'
     DragDropModule,
     MatBadgeModule,
     MatProgressSpinnerModule,
+    HttpClientModule,
     AppRoutingModule,
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoggingInterceptorService,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
