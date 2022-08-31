@@ -12,6 +12,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { MainComponent } from './game-controller/main/main.component';
 import { ServiceMainComponent } from './service-assignment/service-main/service-main.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { AnimationComponent } from './animations/animation.component';
 
 const appRoutes = [
   {
@@ -28,6 +29,7 @@ const appRoutes = [
       { path: 'reactiveform', component: ReactiveFormsComponent },
       { path: 'pipes', component: PipesComponent },
       { path: 'http', component: HttpComponent },
+      { path: 'anime', component: AnimationComponent },
     ],
   },
 ];

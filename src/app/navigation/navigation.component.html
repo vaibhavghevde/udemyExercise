@@ -4,6 +4,7 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="'navigation'" mode='over' [opened]="false">
     <mat-toolbar>Udemy Exercises</mat-toolbar>
     <mat-nav-list (click)="drawer.toggle()">
+      <a mat-list-item routerLinkActive="active" [routerLink]="['/anime']">Animations</a>
       <a mat-list-item routerLinkActive="active" [routerLink]="['/http']">Http</a>
       <a mat-list-item routerLinkActive="active" [routerLink]="['/pipes']">Pipes</a>
       <a mat-list-item routerLinkActive="active" [routerLink]="['/reactiveform']">Reactive Forms</a>

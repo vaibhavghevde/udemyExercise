@@ -61,6 +61,7 @@ import { ReversePipe } from './pipesTest/pipes-component/custompipes/reverse.pip
 import { HttpComponent } from './http/http.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptorService } from './http/auth-interceptor.service';
+import { AnimationComponent } from './animations/animation.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { AuthInterceptorService } from './http/auth-interceptor.service';
     ReversePipe,
     SortPipe,
     HttpComponent,
+    AnimationComponent,
   ],
   imports: [
     BrowserModule,
